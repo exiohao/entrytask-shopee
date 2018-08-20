@@ -1,0 +1,59 @@
+[
+    {
+        "config": {
+            "name": "testset description",
+            "variables": [],
+            "request": {
+                "base_url": "",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+                }
+            }
+        }
+    },
+    {
+        "test": {
+            "name": "/shopee/testddd",
+            "request": {
+                "params": {
+                    "a": "1",
+                    "b": "ni"
+                },
+                "url": "http://127.0.0.1:5000/shopee/testddd",
+                "method": "GET"
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.error_code",
+                        11
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.error_message",
+                        "system error"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.reference",
+                        "system error happened"
+                    ]
+                }
+            ]
+        }
+    }
+]
